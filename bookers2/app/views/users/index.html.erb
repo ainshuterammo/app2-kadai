@@ -1,41 +1,37 @@
-<main>
-  <p id="notice"></p>
-  <div class='container px-5 px-sm-0'>
+<% if flash[:notice] %>
+  <p id="notice">
+  <%= flash[:notice] %>
+  </p>
+<% end %>
 
-  <%= render 'bookslist', user: @user %>
+<div class='container'>
+	<div class='row'>
 
-  <div class='row'>
-    <div class='col-md-3'>
-    <div class='col-md-8 offset-md-1'>
-      <h2>Books</h2>
-      <table class='table table-hover table-inverse'>
-        <thead>
-          <tr>
-            <th></th>
-            <th>Title</th>
-            <th>Opinion</th>
-            <th colspan="3"></th>
-          </tr>
-        </thead>
+			<%= render 'books/list', user: @user, book: @book %>
 
-        <tbody>
-          <tr>
-            <td><%= book.title %></td>
-	  		    <td><%= book.body %></td>
-            <td><%= link_to "Show", book_path(book.id) %></td>
-            <td><%= link_to "Edit", edit_book_path(book.id) %></td>
-            <td><%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %></td>
-          </tr>
-        <% end %>
-        </tbody>
-      </table>
-    </div>
-    </div>
-  </div>
-  </div>
-</main>
+		<div class='col-md-8 offset-md-1'>
+  		<h2>Users</h2>
 
+			<table class='table'>
 
+				<tr>
+					<th>image</th>
+					<th>name</th>
+					<th colspan="3"></th>
+				</tr>
+			</table>
+			<tbody>
+    	<% @users.each do |user| %>
 
-
+    		<tr>
+      		<td><%= image_tag user.get_profile_image(100,100) %></td>
+					<td><%= user.name %></td>
+   		   <td><%= link_to "Show", user_path(user.id) %></td>
+   		 </tr>
+   	 <% end %>
+   </tbody>
+  </table>
+		</div>
+	</div>
+</div>
 
