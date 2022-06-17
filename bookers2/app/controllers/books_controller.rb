@@ -45,9 +45,10 @@ class BooksController < ApplicationController
   end
 
   def destroy
-    @book = book.destroy(user.id)
+    @book = Book.find(current_user.id)
+    # @book = book.destroy(user.id)
     @book.destroy
-    redirect_to book_path
+    redirect_to books_path
   end
 
   private
