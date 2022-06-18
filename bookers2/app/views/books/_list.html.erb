@@ -17,7 +17,7 @@
 
   <div class='row'>
     <div >
-    <%= link_to edit_user_path(user.id), class: "btn btn-danger" do %>
+    <%= link_to edit_user_path(user), class: "btn btn-danger" do %>
     <i class="fas fa-user-cog"></i>
     <% end %>
     </div>
@@ -49,6 +49,8 @@
   <%= form_with model: book do |f| %>
 
     <div class="form-group">
+      <label>Title</label>
+      <%= f.text_field :title %>
       <label for="book_title">Title</label>
       <input class="form-control book_title" type="text" name="book[title]" id="book_title" />
     </div>
