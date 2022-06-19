@@ -11,3 +11,15 @@
 .btn:not(:disabled):not(.disabled) {
     cursor: pointer;
 }
+
+.table td, .table th {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
