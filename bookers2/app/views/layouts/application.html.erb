@@ -12,7 +12,6 @@
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body>
 
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -22,77 +21,77 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
         <ul class="navbar-nav ml-auto">
 
-        <% if user_signed_in? %>
+          <% if user_signed_in? %>
 
-        <li>
-          <%= link_to user_path(current_user.id) do %>
-    			<i class="fas fa-home"></i> Home
+          <li>
+            <%= link_to user_path(current_user.id), class: "nav-link text-light" do %>
+    			  <i class="fas fa-home"></i> Home
   				<% end %>
-        </li>
-        <li>
-          <%= link_to users_path do %>
-    			<i class="fas fa-users"></i> Users
+          </li>
+          <li>
+            <%= link_to users_path, class: "nav-link text-light" do %>
+    			  <i class="fas fa-users"></i> Users
   				<% end %>
-        </li>
-        <li>
-          <%= link_to books_path do %>
-    			<i class="fas fa-book-open"></i> Books
+          </li>
+          <li>
+            <%= link_to books_path, class: "nav-link text-light" do %>
+    			  <i class="fas fa-book-open"></i> Books
   				<% end %>
-        </li>
-        <li>
-          <%= link_to destroy_user_session_path, method: :delete do %>
-    			<i class="fas fa-sign-out-alt"></i> Log out
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-light" do %>
+    			  <i class="fas fa-sign-out-alt"></i> Log out
   				<% end %><!--<a class="nav-link text-light" rel="nofollow" data-method="delete" href="/users/sign_out">-->
-        </li>
+          </li>
 
-        <% else %>
+          <% else %>
 
-        <li>
-          <%= link_to root_path do %>
-    			<i class="fas fa-home"></i> Home
-  				<% end %><!--class="nav-link text-light"-->
-        </li>
-        <li>
-          <%= link_to about_path do %>
-    			<i class="fas fa-link"></i> About
+          <li>
+            <%= link_to root_path, class: "nav-link text-light" do %>
+    			  <i class="fas fa-home"></i> Home
+  			 	<% end %><!--class="nav-link text-light"-->
+          </li>
+          <li>
+            <%= link_to about_path, class: "nav-link text-light" do %>
+    			  <i class="fas fa-link"></i> About
   				<% end %><!--class="nav-link text-light" -->
-        </li>
-        <li>
-          <%= link_to new_user_registration_path do %>
-    			<i class="fas fa-user-plus"></i> Sign up
+          </li>
+          <li>
+            <%= link_to new_user_registration_path, class: "nav-link text-light" do %>
+    			  <i class="fas fa-user-plus"></i> Sign up
   				<% end %><!--<a class="nav-link text-light" href="/users/sign_up">-->
-        </li>
-        <li>
-          <%= link_to user_session_path do %>
+          </li>
+          <li>
+            <%= link_to user_session_path, class: "nav-link text-light" do %>
     			<i class="fas fa-sign-in-alt"></i> Log in
-  				<% end %><!--<a class="nav-link text-light" href="/users/sign_in">-->
-        </li>
+  				  <% end %><!--<a class="nav-link text-light" href="/users/sign_in">-->
+          </li>
 
-        <% end %>
+          <% end %>
         </ul>
       </div>
     </div>
   </nav>
 </header>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
-  <main class="mb-auto">
+<main class="mb-auto">
+<p id="notice"></p>
   <%= yield %>
-  </main>
-    <footer>
-      <div class='container mt-5'>
-  	<div class='row'>
-    	<div class='mx-auto'>
-    		<p>CopyRight Infratop.inc</p>
-    	</div>
+</main>
+
+<footer>
+  <div class='container mt-5'>
+    <div class='row'>
+   	  <div class='mx-auto'>
+    	  <p>CopyRight Infratop.inc</p>
+  	  </div>
     </div>
   </div>
-    </footer>
-  </body>
+</footer>
+
 
 <!--<li>-->
 <!--            <a class="nav-link text-light" href="/users/18458">-->

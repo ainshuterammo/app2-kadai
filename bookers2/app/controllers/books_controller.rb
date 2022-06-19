@@ -14,8 +14,8 @@ class BooksController < ApplicationController
       @books = Book.all
       render :index
     end
-    @book.user_id = current_user.id
-    @book.save
+    # @book.user_id = current_user.id
+    # @book.save
     # redirect_to book_path
 
   end
@@ -44,7 +44,7 @@ class BooksController < ApplicationController
       redirect_to book_path(@book.id)
       flash[:notice] = "Book was successfully updated."
     else
-      if @post.update(post_params)
+      if @book.update(book_params)
         redirect_to book_path
       else
         render :edit
@@ -59,7 +59,7 @@ class BooksController < ApplicationController
       redirect_to  book_path
       flash[:notice] = "Book was successfully destroyed."
     else
-      @post.destroy
+      @book.destroy
     end
   end
     # @book = Book.find(current_user.id)
