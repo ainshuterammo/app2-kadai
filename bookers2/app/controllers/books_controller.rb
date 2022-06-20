@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!
   # before_action :ensure_user, only: [:edit, :update, :destroy]
 
   def new
@@ -37,7 +38,7 @@ class BooksController < ApplicationController
   def edit
     @book = Book.find(params[:id])
     unless @book.user == current_user
-      redirect_to  new_book_path
+      redirect_to  books_path
     end
   end
 
@@ -45,10 +46,10 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     if @book.user != current_user
       redirect_to book_path(@book.id)
-      flash[:notice] = "Book was successfully updated."
     else
       if @book.update(book_params)
         redirect_to book_path
+        flash[:notice] = "Book was successfully updated."
       else
         render :edit
       end

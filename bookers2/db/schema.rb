@@ -46,7 +46,6 @@ ActiveRecord::Schema.define(version: 2022_06_13_050112) do
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index "\"part_id\", \"word\"", name: "index_books_on_part_id_and_word", unique: true
   end
 
   create_table "users", force: :cascade do |t|
