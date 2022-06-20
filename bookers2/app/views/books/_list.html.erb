@@ -10,6 +10,7 @@
   <% end %>
 
   <h2>User info</h2>
+
   <table class='table'>
     <tr>
       <th><%= image_tag user.get_profile_image(100,100) %></th>
@@ -23,7 +24,6 @@
       <th><%= user.introduction %></th>
     </tr>
   </table>
-
 
   <div class='row'>
     <%= link_to edit_user_path(user), class: 'btn btn-outline-secondary btn-block' do %>
@@ -46,11 +46,9 @@
 
     <div class="form-group">
       <%= f.submit 'Create Book', class: 'btn btn-success'  %>
-      <!--<input type="submit" name="commit" value="Create Book" class="btn btn-success" data-disable-with="Create Book" />-->
     </div>
 
   <% end %>
-
 </div>
 
 
