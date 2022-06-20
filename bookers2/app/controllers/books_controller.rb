@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  # before_action :ensure_user, only: [:edit, :update, :destroy]
+
   def new
     @book = Book.new
   end
@@ -53,21 +55,16 @@ class BooksController < ApplicationController
     end
   end
   def destroy
-
     @books = Book.all
     @book = Book.find(params[:id])
     if @book.user != current_user
-      redirect_to  book_path
-      flash[:notice] = "Book was successfully destroyed."
+      redirect_to  book_path(book.id)
     else
       @book.destroy
+      flash[:notice] = "Book was successfully destroyed."
+      redirect_to books_path
     end
   end
-    # @book = Book.find(current_user.id)
-    # @book = book.destroy(user.id)
-    # @book.destroy
-    # redirect_to books_path
-    # flash[:notice] = "Book was successfully destroyed."
 
 
 
@@ -77,4 +74,11 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :body)
   end
+
+  # def ensure_user
+  #   @books = current_user.posts
+  #   @book = @books.find_by(id: params[:id])
+  #   redirect_to books_path unless @book
+  # end
+
 end

@@ -20,7 +20,7 @@
     		<td><%= link_to user_path(@user.id), target: "_blank" do %>
   					<%= image_tag @user.get_profile_image(100,100) %><br>
   					<%= @user.name %>
-						<% end %></td> 
+						<% end %></td>
 				<td><%= link_to @book.title, book_path(@book.id) %></td>
 				<td><%= @book.body %></td>
 				<% if @book.user == current_user %>
