@@ -17,10 +17,6 @@ class BooksController < ApplicationController
       @books = Book.all
       render :index
     end
-    # @book.user_id = current_user.id
-    # @book.save
-    # redirect_to book_path
-
   end
 
   def index
@@ -67,19 +63,9 @@ class BooksController < ApplicationController
     end
   end
 
-
-
-
   private
 
   def book_params
     params.require(:book).permit(:title, :body)
   end
-
-  # def ensure_user
-  #   @books = current_user.posts
-  #   @book = @books.find_by(id: params[:id])
-  #   redirect_to books_path unless @book
-  # end
-
 end
